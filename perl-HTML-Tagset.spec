@@ -4,25 +4,26 @@
 #
 Name     : perl-HTML-Tagset
 Version  : 3.20
-Release  : 19
+Release  : 20
 URL      : https://cpan.metacpan.org/authors/id/P/PE/PETDANCE/HTML-Tagset-3.20.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/P/PE/PETDANCE/HTML-Tagset-3.20.tar.gz
 Summary  : data tables useful in parsing HTML
 Group    : Development/Tools
 License  : Artistic-1.0-Perl
-Requires: perl-HTML-Tagset-man
+BuildRequires : buildreq-cpan
 
 %description
 HTML::Tagset
 This module contains data tables useful in dealing with HTML.
 It provides no functions or methods.
 
-%package man
-Summary: man components for the perl-HTML-Tagset package.
-Group: Default
+%package dev
+Summary: dev components for the perl-HTML-Tagset package.
+Group: Development
+Provides: perl-HTML-Tagset-devel = %{version}-%{release}
 
-%description man
-man components for the perl-HTML-Tagset package.
+%description dev
+dev components for the perl-HTML-Tagset package.
 
 
 %prep
@@ -51,9 +52,9 @@ make TEST_VERBOSE=1 test
 %install
 rm -rf %{buildroot}
 if test -f Makefile.PL; then
-make pure_install PERL_INSTALL_ROOT=%{buildroot}
+make pure_install PERL_INSTALL_ROOT=%{buildroot} INSTALLDIRS=vendor
 else
-./Build install --installdirs=site --destdir=%{buildroot}
+./Build install --installdirs=vendor --destdir=%{buildroot}
 fi
 find %{buildroot} -type f -name .packlist -exec rm -f {} ';'
 find %{buildroot} -depth -type d -exec rmdir {} 2>/dev/null ';'
@@ -62,8 +63,8 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files
 %defattr(-,root,root,-)
-/usr/lib/perl5/site_perl/5.26.1/HTML/Tagset.pm
+/usr/lib/perl5/vendor_perl/5.26.1/HTML/Tagset.pm
 
-%files man
+%files dev
 %defattr(-,root,root,-)
 /usr/share/man/man3/HTML::Tagset.3
