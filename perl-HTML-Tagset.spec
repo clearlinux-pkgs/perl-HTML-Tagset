@@ -4,10 +4,10 @@
 #
 Name     : perl-HTML-Tagset
 Version  : 3.20
-Release  : 28
+Release  : 29
 URL      : https://cpan.metacpan.org/authors/id/P/PE/PETDANCE/HTML-Tagset-3.20.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/P/PE/PETDANCE/HTML-Tagset-3.20.tar.gz
-Summary  : data tables useful in parsing HTML
+Summary  : Data tables useful in parsing HTML
 Group    : Development/Tools
 License  : Artistic-1.0-Perl
 BuildRequires : buildreq-cpan
@@ -21,6 +21,7 @@ It provides no functions or methods.
 Summary: dev components for the perl-HTML-Tagset package.
 Group: Development
 Provides: perl-HTML-Tagset-devel = %{version}-%{release}
+Requires: perl-HTML-Tagset = %{version}-%{release}
 
 %description dev
 dev components for the perl-HTML-Tagset package.
