@@ -4,12 +4,13 @@
 #
 Name     : perl-HTML-Tagset
 Version  : 3.20
-Release  : 31
+Release  : 32
 URL      : https://cpan.metacpan.org/authors/id/P/PE/PETDANCE/HTML-Tagset-3.20.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/P/PE/PETDANCE/HTML-Tagset-3.20.tar.gz
-Summary  : Data tables useful in parsing HTML
+Summary  : data tables useful in parsing HTML
 Group    : Development/Tools
 License  : Artistic-1.0-Perl
+Requires: perl-HTML-Tagset-perl = %{version}-%{release}
 BuildRequires : buildreq-cpan
 
 %description
@@ -27,14 +28,24 @@ Requires: perl-HTML-Tagset = %{version}-%{release}
 dev components for the perl-HTML-Tagset package.
 
 
+%package perl
+Summary: perl components for the perl-HTML-Tagset package.
+Group: Default
+Requires: perl-HTML-Tagset = %{version}-%{release}
+
+%description perl
+perl components for the perl-HTML-Tagset package.
+
+
 %prep
 %setup -q -n HTML-Tagset-3.20
+cd %{_builddir}/HTML-Tagset-3.20
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
-export LANG=C
+export LANG=C.UTF-8
 if test -f Makefile.PL; then
 %{__perl} Makefile.PL
 make  %{?_smp_mflags}
@@ -44,7 +55,7 @@ else
 fi
 
 %check
-export LANG=C
+export LANG=C.UTF-8
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
@@ -64,8 +75,11 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files
 %defattr(-,root,root,-)
-/usr/lib/perl5/vendor_perl/5.28.2/HTML/Tagset.pm
 
 %files dev
 %defattr(-,root,root,-)
 /usr/share/man/man3/HTML::Tagset.3
+
+%files perl
+%defattr(-,root,root,-)
+/usr/lib/perl5/vendor_perl/5.30.1/HTML/Tagset.pm
