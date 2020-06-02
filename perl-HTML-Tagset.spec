@@ -4,7 +4,7 @@
 #
 Name     : perl-HTML-Tagset
 Version  : 3.20
-Release  : 33
+Release  : 34
 URL      : https://cpan.metacpan.org/authors/id/P/PE/PETDANCE/HTML-Tagset-3.20.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/P/PE/PETDANCE/HTML-Tagset-3.20.tar.gz
 Summary  : data tables useful in parsing HTML
@@ -82,4 +82,4 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files perl
 %defattr(-,root,root,-)
-/usr/lib/perl5/vendor_perl/5.30.2/HTML/Tagset.pm
+/usr/lib/perl5/vendor_perl/5.30.3/HTML/Tagset.pm
