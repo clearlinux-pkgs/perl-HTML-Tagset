@@ -1,5 +1,11 @@
 Revision history for Perl extension HTML::Tagset
 
+2024-03-11  Andy Lester
+
+        * Release 3.24
+
+        No changes in functionality. Only updates metadata for builds.
+
 2024-03-09  Andy Lester
 
         * Release 3.22
