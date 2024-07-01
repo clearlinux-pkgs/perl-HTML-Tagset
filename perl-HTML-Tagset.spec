@@ -7,7 +7,7 @@
 #
 Name     : perl-HTML-Tagset
 Version  : 3.24
-Release  : 47
+Release  : 48
 URL      : https://cpan.metacpan.org/authors/id/P/PE/PETDANCE/HTML-Tagset-3.24.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/P/PE/PETDANCE/HTML-Tagset-3.24.tar.gz
 Summary  : 'Data tables useful in parsing HTML'
